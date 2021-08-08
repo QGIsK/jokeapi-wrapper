@@ -36,6 +36,7 @@
     "prettier": "^2.0.5"
   },
   "dependencies": {
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "querystring": "^0.2.1"
   }
 }
