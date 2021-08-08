@@ -1,0 +1,37 @@
+{
+  "name": "@qgisk/joke-api-wrapper",
+  "version": "1.0.0",
+  "description": "Wrapper for Joke API",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node index.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QGIsK/JokeAPIWrapper-JS.git"
+  },
+  "keywords": [
+    "Wrapper",
+    "API",
+    "NodeJS",
+    "Joke",
+    "JokeAPI"
+  ],
+  "author": "Demian",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/QGIsK/JokeAPIWrapper-JS/issues"
+  },
+  "homepage": "https://github.com/QGIsK/JokeAPIWrapper-JS#readme",
+  "devDependencies": {
+    "eslint": "^7.0.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-security": "^1.4.0",
+    "prettier": "^2.0.5"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}
