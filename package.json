@@ -4,7 +4,11 @@
   "description": "Wrapper for Joke API",
   "main": "src/index.js",
   "scripts": {
-    "test": "node index.test.js"
+    "test": "node index.test.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prettier": "prettier --check **/*.js **/*.vue",
+    "prettier:fix": "prettier --write **/*.js **/*.vue"
   },
   "repository": {
     "type": "git",
