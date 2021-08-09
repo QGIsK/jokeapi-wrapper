@@ -4,8 +4,8 @@
  * @returns {string}
  */
 const parseArray = (data) => {
-  const parsedData = data ?? (data.length > 0 ? data.split(',') : data.categories);
-  return parsedData ?? parsedData.toLowerCase();
+  const parsedData = !data ?? (data.length > 0 ? data.split(',') : data);
+  return !parsedData ?? parsedData.toLowerCase();
 };
 
 /**
