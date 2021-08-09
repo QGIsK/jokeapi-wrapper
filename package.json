@@ -1,5 +1,5 @@
 {
-  "name": "@qgisk/joke-api-wrapper",
+  "name": "@qgisk/jokeapi-wrapper",
   "version": "1.0.0",
   "description": "Wrapper for Joke API",
   "main": "src/index.js",
