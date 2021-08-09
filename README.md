@@ -87,13 +87,13 @@ const joke = await JokeClient.getJoke({ categories: 'Coding' });
 ### • Example
 
 ```javascript
-const joke = await JokeClient.info();
+const info = await JokeClient.info();
 ```
 
 or
 
 ```javascript
-const joke = await JokeClient.info({format: 'text', lang: 'en'}));
+const info = await JokeClient.info({format: 'text', lang: 'en'}));
 ```
 
 ## • Categories
@@ -106,13 +106,13 @@ const joke = await JokeClient.info({format: 'text', lang: 'en'}));
 ### • Example
 
 ```javascript
-const joke = await JokeClient.categories();
+const categories = await JokeClient.categories();
 ```
 
 or
 
 ```javascript
-  const joke = await JokeClient.categories({format: 'text', lang: 'en'}));
+  const categories = await JokeClient.categories({format: 'text', lang: 'en'}));
 ```
 
 ## • Langcode
@@ -125,13 +125,13 @@ or
 ### • Example
 
 ```javascript
-const joke = await JokeClient.langcode();
+const langcode = await JokeClient.langcode();
 ```
 
 or
 
 ```javascript
-  const joke = await JokeClient.langcode({format: 'text', lang: 'en'}));
+  const langcode = await JokeClient.langcode({format: 'text', lang: 'en'}));
 ```
 
 ## • Languages
@@ -144,13 +144,13 @@ or
 ### • Example
 
 ```javascript
-const joke = await JokeClient.languages();
+const languages = await JokeClient.languages();
 ```
 
 or
 
 ```javascript
-  const joke = await JokeClient.languages({format: 'text', lang: 'en'}));
+  const languages = await JokeClient.languages({format: 'text', lang: 'en'}));
 ```
 
 ## • Flags
@@ -163,13 +163,13 @@ or
 ### • Example
 
 ```javascript
-const joke = await JokeClient.flags();
+const flags = await JokeClient.flags();
 ```
 
 or
 
 ```javascript
-  const joke = await JokeClient.flags({format: 'text', lang: 'en'}));
+  const flags = await JokeClient.flags({format: 'text', lang: 'en'}));
 ```
 
 ## • Formats
@@ -182,13 +182,13 @@ or
 ### • Example
 
 ```javascript
-const joke = await JokeClient.formats();
+const formats = await JokeClient.formats();
 ```
 
 or
 
 ```javascript
-  const joke = await JokeClient.formats({format: 'text', lang: 'en'}));
+  const formats = await JokeClient.formats({format: 'text', lang: 'en'}));
 ```
 
 ## • Ping
@@ -201,13 +201,13 @@ or
 ### • Example
 
 ```javascript
-const joke = await JokeClient.ping();
+const ping = await JokeClient.ping();
 ```
 
 or
 
 ```javascript
-  const joke = await JokeClient.ping({format: 'text', lang: 'en'}));
+  const ping = await JokeClient.ping({format: 'text', lang: 'en'}));
 ```
 
 ## • Inspiration
