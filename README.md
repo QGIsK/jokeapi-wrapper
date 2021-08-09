@@ -1,5 +1,9 @@
 # Joke API Client for NodeJS
 
+
+<span class="badge-npmversion"><a href="https://www.npmjs.com/package/@qgisk/jokeapi-wrapper" title="View this project on NPM"><img src="https://img.shields.io/npm/v/@qgisk/jokeapi-wrapper.svg" alt="NPM version"/></a></span>
+<span class="badge-npmdownloads"><a href="https://npmjs.org/package/@qgisk/jokeapi-wrapper" title="View this project on NPM"><img src="https://img.shields.io/npm/dm/@qgisk/jokeapi-wrapper.svg" alt="NPM downloads" /></a></span>
+
 A Node.js wrapper for the JokeAPI with only one dependency.
 
 ## • Installation
