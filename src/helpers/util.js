@@ -44,8 +44,6 @@ const parseParams = (params, options) => {
     delete parsedParams.language;
   }
 
-  if ('dry-run' in options) parsedParams['dry-run'] = 'dry-run';
-
   return { parsedParams, wildcard };
 };
 
