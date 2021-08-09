@@ -1,4 +1,5 @@
 # Joke API Client for NodeJS
+
 A Node.js wrapper for the JokeAPI with only one dependency.
 
 ## • Installation
@@ -14,6 +15,17 @@ For complete API documentation, up-to-date parameters, responses and errors, ple
 ## • Constants
 
 This module provides helper constants for use in calls.
+
+| Key               | Usage                     | Description                         |
+| ----------------- | ------------------------- | ----------------------------------- |
+| `BASE`            | `JokeAPI.BASE`            | Base url for api                    |
+| `HOST`            | `JokeAPI.HOST`            | Host url                            |
+| `API_VERSION`     | `JokeAPI.API_VERSION`     | Current api version                 |
+| `CATEGORIES`      | `JokeAPI.CATEGORIES`      | Lists all avaliable categories      |
+| `BLACKLIST_FLAGS` | `JokeAPI.BLACKLIST_FLAGS` | Lists all avaliable blacklist flags |
+| `FORMAT`          | `JokeAPI.FORMAT`          | Lists all avaliable formats         |
+| `TYPE`            | `JokeAPI.TYPE`            | Lists all avaliable types           |
+| `AMOUNT_MAX`      | `JokeAPI.AMOUNT_MAX`      | Max amount of jokes per request     |
 
 ## • Quick Start Example
 
@@ -194,7 +206,7 @@ or
 
 ## • Inspiration
 
-[miscavage](https://github.com/miscavage/CoinGecko-API/)
+[miscavage](https://github.com/miscavage/JokeAPI-API/)
 
 ## • License
 
