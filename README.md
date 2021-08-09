@@ -6,7 +6,7 @@ A Node.js wrapper for the JokeAPI with only one dependency.
 
 Latest version: 1.0.0
 
-`npm i github:qgisk/jokeapi-wrapper`
+`npm i @qgisk/jokeapi-wrapper`
 
 ## • JokeAPI Documentation
 
