@@ -10,7 +10,7 @@
     "src/helpers/util.js"
   ],
   "scripts": {
-    "test": "node index.test.js",
+    "test": "ava",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prettier": "prettier --check **/*.js",
@@ -38,6 +38,7 @@
   },
   "homepage": "https://github.com/QGIsK/JokeAPIWrapper-JS#readme",
   "devDependencies": {
+    "ava": "^3.15.0",
     "eslint": "^7.0.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^8.1.0",
