@@ -1,8 +1,9 @@
 const JokeAPI = require('.');
-const JokeClient = new JokeAPI();
+
+const JokeClient = new JokeAPI({ lang: 'de', blacklistFlags: 'nsfw' });
 
 const get = async () => {
-  const joke = await JokeClient.getJoke();
+  const joke = await JokeClient.getJoke({ categories: 'coding,dark' });
   console.log(joke);
 
   const info = await JokeClient.info({ lang: 'en' });
@@ -14,7 +15,7 @@ const get = async () => {
   const langcode = await JokeClient.langcode({ language: 'eng' });
   console.log(langcode);
 
-  const languages = await JokeClient.langcode();
+  const languages = await JokeClient.languages();
   console.log(languages);
 
   const flags = await JokeClient.flags();
