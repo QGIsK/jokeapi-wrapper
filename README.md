@@ -7,7 +7,9 @@ A Node.js wrapper for the JokeAPI with only one dependency.
 
 ## • Installation
 
-`npm i @qgisk/jokeapi-wrapper`
+```bash
+npm i @qgisk/jokeapi-wrapper
+```
 
 ## • JokeAPI Documentation
 
@@ -76,7 +78,7 @@ const joke = await JokeClient.getJoke({ categories: ['Coding', 'dark] });
 or
 
 ```javascript
-const joke = await JokeClient.getJoke({ categories: 'Coding, dark' });
+const joke = await JokeClient.getJoke({ categories: 'Coding,dark' });
 ```
 
 or
