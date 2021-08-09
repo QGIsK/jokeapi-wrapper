@@ -30,6 +30,30 @@ const get = async () => {
   const endpoints = await JokeClient.endpoints();
   console.log(endpoints);
 
+  const submitSingle = await JokeClient.submit({
+    'dry-run': true,
+    formatVersion: 3,
+    category: 'Misc',
+    type: 'single',
+    joke: 'testing',
+    flags: { nsfw: true, religious: false, political: false, racist: false, sexist: false, explicit: true },
+    lang: 'en',
+  });
+  console.log(submitSingle);
+
+  const submitDouble = await JokeClient.submit({
+    'dry-run': true,
+    formatVersion: 3,
+    category: 'misc',
+    type: 'twopart',
+    setup: 'Setup',
+    delivery: 'Delivering',
+    flags: { nsfw: true, religious: false, political: false, racist: false, sexist: false, explicit: true },
+    lang: 'en',
+  });
+
+  console.log(submitDouble);
+
   // Access Constants
   console.log(JokeAPI.BASE);
 };
