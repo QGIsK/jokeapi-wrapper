@@ -93,7 +93,7 @@ const info = await JokeClient.info();
 or
 
 ```javascript
-const info = await JokeClient.info({format: 'text', lang: 'en'}));
+const info = await JokeClient.info({ format: 'text', lang: 'en' });
 ```
 
 ## • Categories
@@ -112,15 +112,15 @@ const categories = await JokeClient.categories();
 or
 
 ```javascript
-  const categories = await JokeClient.categories({format: 'text', lang: 'en'}));
+const categories = await JokeClient.categories({ format: 'text', lang: 'en' });
 ```
 
 ## • Langcode
 
-| Key      | Type     |
-| -------- | -------- |
-| `format` | `string` |
-| `lang`   | `string` |
+| Key        | Type     |
+| ---------- | -------- |
+| `format`   | `string` |
+| `language` | `string` |
 
 ### • Example
 
@@ -131,7 +131,7 @@ const langcode = await JokeClient.langcode();
 or
 
 ```javascript
-  const langcode = await JokeClient.langcode({format: 'text', lang: 'en'}));
+const langcode = await JokeClient.langcode({ format: 'text', language: 'english' });
 ```
 
 ## • Languages
@@ -150,7 +150,7 @@ const languages = await JokeClient.languages();
 or
 
 ```javascript
-  const languages = await JokeClient.languages({format: 'text', lang: 'en'}));
+const languages = await JokeClient.languages({ format: 'text', lang: 'en' });
 ```
 
 ## • Flags
@@ -169,7 +169,7 @@ const flags = await JokeClient.flags();
 or
 
 ```javascript
-  const flags = await JokeClient.flags({format: 'text', lang: 'en'}));
+const flags = await JokeClient.flags({ format: 'text', lang: 'en' });
 ```
 
 ## • Formats
@@ -188,7 +188,7 @@ const formats = await JokeClient.formats();
 or
 
 ```javascript
-  const formats = await JokeClient.formats({format: 'text', lang: 'en'}));
+const formats = await JokeClient.formats({ format: 'text', lang: 'en' });
 ```
 
 ## • Ping
@@ -207,7 +207,7 @@ const ping = await JokeClient.ping();
 or
 
 ```javascript
-  const ping = await JokeClient.ping({format: 'text', lang: 'en'}));
+const ping = await JokeClient.ping({ format: 'text', lang: 'en' });
 ```
 
 ## • Inspiration
