@@ -35,7 +35,7 @@ This module provides helper constants for use in calls.
 
 ```javascript
 // Import the wrapper library
-const JokeAPI = require('jokeapi-wrapper');
+const JokeAPI = require('@qgisk/jokeapi-wrapper');
 
 // Initiate the client
 const JokeClient = new JokeAPI();
