@@ -13,28 +13,40 @@ const parseArray = (data) => {
  * @returns {object}
  */
 const parseParams = (params, options) => {
-  const obj = {};
+  const parsedParams = params;
+  let wildcard;
 
   // Either in params or options
-  if ('safemode' in options) obj.safemode = 'safemode';
-  if ('safemode' in params) obj.safemode ? delete obj.safemode : params.safemode;
 
-  if ('format' in options) obj.format = options.format;
-  if ('format' in params) params.format === 'json' ? delete obj.format : params.format;
+  if ('safemode' in options) parsedParams.safemode = 'safemode';
+  if ('safemode' in params) parsedParams.safemode ? delete parsedParams.safemode : (parsedParams.safemode = params.safemode);
+
+  if ('format' in options) parsedParams.format = options.format;
+  if ('format' in params) params.format === 'json' ? delete parsedParams.format : (parsedParams.format = params.format);
 
   if ('blacklistFlags' in params || 'blacklistFlags' in options)
-    obj.blacklistFlags = params.blacklistFlags ? parseArray(params.blacklistFlags) : parseArray(options.blacklistFlags);
+    parsedParams.blacklistFlags = params.blacklistFlags
+      ? parseArray(params.blacklistFlags)
+      : parseArray(options.blacklistFlags);
 
-  if ('lang' in params || 'lang' in options) obj.lang = params.lang ? params.lang : options.lang;
+  if ('lang' in params || 'lang' in options) parsedParams.lang = params.lang ? params.lang : options.lang;
 
   // Just in params
-  if ('idRange' in params) obj.idRange = params.idRange;
-  if ('contains' in params) obj.contains = params.contains;
-  if ('type' in params) obj.type = parseArray(params.type);
-  if ('amount' in params) obj.amount = params.amount;
-  if ('language' in params) obj.language = params.language;
+  if ('type' in params) parsedParams.type = parseArray(params.type);
 
-  return obj;
+  // set wildcard
+  if ('categories' in params) {
+    wildcard = `/${parseArray(params.categories)}`;
+    delete parsedParams.categories;
+  }
+  if ('language' in params) {
+    wildcard = `/${params.language}`;
+    delete parsedParams.language;
+  }
+
+  if ('dry-run' in options) parsedParams['dry-run'] = 'dry-run';
+
+  return { parsedParams, wildcard };
 };
 
 module.exports = { parseArray, parseParams };
