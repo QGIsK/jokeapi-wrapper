@@ -220,7 +220,7 @@ const ping = await JokeClient.ping({ format: 'text', lang: 'en' });
 
 ## • Inspiration
 
-[miscavage](https://github.com/miscavage/JokeAPI-API/)
+[miscavage](https://github.com/miscavage/CoinGecko-API/)
 
 ## • License
 
