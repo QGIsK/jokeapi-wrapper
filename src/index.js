@@ -35,7 +35,7 @@ class JokeAPI {
    * @param {number} params.amount
    * @returns {ReturnObject}
    */
-  getJoke(params = {}) {
+  getJoke(params = { categories: 'any' }) {
     const url = this._buildUrl('joke', params);
     return this._request(url);
   }
@@ -71,7 +71,7 @@ class JokeAPI {
    * The resulting language code is to be used in fetching and submitting jokes in different languages.
    * @function langcode()
    * @param {string} params.format
-   * @param {string} params.lang
+   * @param {string} params.language
    * @returns {ReturnObject}
    */
   langcode(params = {}) {
@@ -156,10 +156,12 @@ class JokeAPI {
    * @returns {string}
    */
   _buildUrl(endpoint, params) {
-    const wildcard = params.langCode ? params.langCode : Util.parseArray(params.categories, 'any');
+    const language = params.language;
+    const categories = Util.parseArray(params.categories);
 
     const obj = Util.parseParams(params);
-    const url = `${Constants.BASE}/${endpoint}/${wildcard}`;
+    const wildcard = language ? `/${language}` : categories ? `/${categories}` : '';
+    const url = `${Constants.BASE}/${endpoint}${wildcard}`;
 
     return obj ? this._buildQuery(url, obj) : url;
   }
@@ -181,7 +183,9 @@ class JokeAPI {
    */
   _buildQuery(url, query) {
     const parsedQuery = Object.entries(query)
-      .map((pair) => pair.map(encodeURIComponent).join('='))
+      .map((pair) => {
+        return pair[0] === pair[1] ? pair[0] : pair.map(encodeURIComponent).join('=');
+      })
       .join('&');
 
     return parsedQuery ? `${url}?${parsedQuery}` : url;
