@@ -241,6 +241,34 @@ or
 const ping = await JokeClient.ping({ format: 'text', lang: 'en' });
 ```
 
+## • Submitting
+
+For testing define dry-run as anything
+
+### • Example
+
+```javascript
+const submitSingle = await JokeClient.submit({
+  'dry-run': true,
+  formatVersion: 3,
+  category: 'Misc',
+  type: 'single',
+  joke: 'testing',
+  flags: { nsfw: true, religious: false, political: false, racist: false, sexist: false, explicit: true },
+  lang: 'en',
+});
+const submitDouble = await JokeClient.submit({
+  'dry-run': true,
+  formatVersion: 3,
+  category: 'misc',
+  type: 'twopart',
+  setup: 'Setup',
+  delivery: 'Delivering',
+  flags: { nsfw: true, religious: false, political: false, racist: false, sexist: false, explicit: true },
+  lang: 'en',
+});
+```
+
 ## • Inspiration
 
 [miscavage](https://github.com/miscavage/CoinGecko-API/)
