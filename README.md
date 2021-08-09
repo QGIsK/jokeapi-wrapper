@@ -62,7 +62,7 @@ get();
 ### • Example
 
 ```javascript
-const JokeClient = new JokeAPI({ apiKey: 'exampleapikey', safemode: true, format: 'xml' blacklistflags: ['nsfw']});
+const JokeClient = new JokeAPI({ apiKey: 'exampleapikey', safemode: true, format: 'xml' blacklistflags: ['nsfw'], lang: 'de'});
 ```
 
 ## • Categories & BlacklistFlags
