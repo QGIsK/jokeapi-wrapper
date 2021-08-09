@@ -8,7 +8,7 @@ const get = async () => {
   const info = await JokeClient.info({ lang: 'en' });
   console.log(info);
 
-  const categories = await JokeClient.info();
+  const categories = await JokeClient.categories();
   console.log(categories);
 
   const langcode = await JokeClient.langcode({ language: 'eng' });
