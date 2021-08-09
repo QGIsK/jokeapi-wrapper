@@ -93,7 +93,7 @@ const joke = await JokeClient.info();
 or
 
 ```javascript
-  const joke = await JokeClient.info({format: 'text', lang: 'en'}));
+const joke = await JokeClient.info({format: 'text', lang: 'en'}));
 ```
 
 ## • Categories
