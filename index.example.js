@@ -2,6 +2,7 @@ const JokeAPI = require('.');
 
 const JokeClient = new JokeAPI({ blacklistflags: ['nsfw', 'explicit'] });
 const get = async () => {
+  // Methods
   const joke = await JokeClient.getJoke({ categories: 'coding,dark', idRange: '10-15' });
   console.log(joke);
 
@@ -28,6 +29,9 @@ const get = async () => {
 
   const endpoints = await JokeClient.endpoints();
   console.log(endpoints);
+
+  // Access Constants
+  console.log(JokeAPI.BASE);
 };
 
 get();
