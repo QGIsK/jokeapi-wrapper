@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "description": "Wrapper for Joke API",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "src/index.js",
+    "src/helpers/constants.js",
+    "src/helpers/util.js"
+  ],
   "scripts": {
     "test": "node index.test.js",
     "lint": "eslint .",
@@ -21,7 +27,11 @@
     "Joke",
     "JokeAPI"
   ],
-  "author": "Demian",
+  "author": {
+    "name": "Demian <QGisK>",
+    "email": "devaccdemiann@gmail.com",
+    "url": "https://demiann.dev"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/QGIsK/JokeAPIWrapper-JS/issues"
