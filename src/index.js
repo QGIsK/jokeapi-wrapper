@@ -34,10 +34,10 @@ class JokeAPI {
    * @param {string} params.format
    * @param {string|array} params.blacklistFlags
    * @param {string} params.lang
-   * @param {number} params.idRange
+   * @param {string} params.idRange i.e. 10-25
    * @param {string} params.contains
    * @param {string} params.type
-   * @param {number} params.amount
+   * @param {number} params.amount i.e. 5 MAX:: 10
    * @returns {ReturnObject}
    */
   getJoke(params = {}) {
