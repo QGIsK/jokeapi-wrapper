@@ -167,6 +167,10 @@ const JokeClient = new JokeAPI(<apikey>);
 ...
 ```
 
-# Inspiration
+## • Inspiration
 
 [miscavage](https://github.com/miscavage/CoinGecko-API/)
+
+## • License
+
+[MIT](LICENSE)
