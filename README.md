@@ -49,11 +49,31 @@ const get = async () => {
 get();
 ```
 
-## • With Api Key
+## • With Options
+
+| Key              | Type           |
+| ---------------- | -------------- |
+| `apiKey`         | `string`       |
+| `safemode`       | `boolean`      |
+| `format`         | `string`       |
+| `blacklistFlags` | `string/array` |
+| `lang`           | `string`       |
+
+### • Example
 
 ```javascript
-const JokeClient = new JokeAPI(<apikey>);
+const JokeClient = new JokeAPI({ apikey: 'exampleapikey', safemode: true, format: 'xml' blacklistflags: ['nsfw']});
+```
 
+## • Categories & BlacklistFlags
+
+can be given in an array or a string seperated by ,
+
+### • Example
+
+```javascript
+const JokeClient = new JokeAPI({ blacklistflags: ['nsfw', 'explicit'] });
+const joke = await JokeClient.getJoke({ categories: 'coding,dark' });
 ```
 
 ## • Get Joke
