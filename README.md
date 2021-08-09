@@ -31,14 +31,15 @@ This module provides helper constants for use in calls.
 
 ```javascript
 // Import the wrapper library
-const JokeAPI = require('jokeapi-wrapper');
+const JokeAPI = require("jokeapi-wrapper");
 
 // Initiate the client
 const JokeClient = new JokeAPI();
 
 // Create a function that gets a joke
-const get = () => {
+const get = async () => {
   const joke = await JokeClient.getJoke();
+  console.log(joke);
 };
 
 // Execute the function
