@@ -24,7 +24,7 @@ class JokeAPI {
    * @param {string} options.lang Globally change language DEFAULT:: en
    */
   constructor(options = {}) {
-    this.options = options;
+    this._options = options;
   }
 
   /**
@@ -149,6 +149,30 @@ class JokeAPI {
   }
 
   /**
+   * @description This endpoint returns a list / an array of all available endpoints, their usage (method, url and supported parameters) and a short description each.
+   * @function endpoints()
+   * @param {number} params.formatVersion
+   * @param {string} params.category
+   * @param {string} params.type
+   * @param {string} params.joke
+   * @param {object} params.flags
+   * @param {boolean} params.flags.nsfw
+   * @param {boolean} params.flags.religious
+   * @param {boolean} params.flags.political
+   * @param {boolean} params.flags.racist
+   * @param {boolean} params.flags.sexist
+   * @param {boolean} params.flags.explicit
+   * @param {lang} params.lang
+   * @returns {ReturnObject}
+   */
+  submit(params = {}) {
+    const url = this._buildUrl('submit', undefined, params['dry-run']);
+    // Remove dry run from body
+    delete params['dry-run'];
+    return this._request(url, { body: JSON.stringify(params), method: 'POST' });
+  }
+
+  /**
    * @description Builds the url.
    * @function _buildUrl()
    * @param {string} endpoint
@@ -161,18 +185,20 @@ class JokeAPI {
    * @param {string} params.type
    * @param {number} params.amount
    * @param {string} params.lang
+   * @param {string} method
    * @returns {string}
    */
-  _buildUrl(endpoint, params) {
-    const { language } = params;
-    const categories = Util.parseArray(params.categories);
+  _buildUrl(endpoint, params, testRun) {
+    if (testRun) return `${Constants.BASE}/${endpoint}?dry-run`;
 
-    const obj = Util.parseParams(params, this.options);
-    // eslint-disable-next-line no-nested-ternary
-    const wildcard = language ? `/${language}` : categories ? `/${categories}` : '';
-    const url = `${Constants.BASE}/${endpoint}${wildcard}`;
+    if (params) {
+      const { parsedParams, wildcard } = Util.parseParams(params, this._options);
+      const url = wildcard ? `${Constants.BASE}/${endpoint}${wildcard}` : `${Constants.BASE}/${endpoint}`;
 
-    return obj ? this._buildQuery(url, obj) : url;
+      return this._buildQuery(url, parsedParams);
+    }
+
+    return `${Constants.BASE}/${endpoint}`;
   }
 
   /**
@@ -210,7 +236,11 @@ class JokeAPI {
    * @returns {object}
    */
   async _request(url, options) {
-    const headers = this.options.apiKey ? { Authorization: this.options.apiKey } : {};
+    const headers = {
+      Authorization: this._options.apiKey,
+      'Content-Type': 'application/json',
+    };
+
     const res = await fetch(url, { ...options, headers });
 
     const formattedUrl = new URL(url);
