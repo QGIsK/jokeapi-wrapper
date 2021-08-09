@@ -7,8 +7,8 @@
     "test": "node index.test.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "prettier": "prettier --check **/*.js **/*.vue",
-    "prettier:fix": "prettier --write **/*.js **/*.vue"
+    "prettier": "prettier --check **/*.js",
+    "prettier:fix": "prettier --write **/*.js"
   },
   "repository": {
     "type": "git",
@@ -31,7 +31,6 @@
     "eslint": "^7.0.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-security": "^1.4.0",
     "prettier": "^2.0.5"
   },
