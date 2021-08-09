@@ -151,7 +151,7 @@ class JokeAPI {
    * @param {number} params.idRange
    * @param {string} params.contains
    * @param {string} params.type
-   * @param {number} params.
+   * @param {number} params.amount
    * @param {string} params.lang
    * @returns {string}
    */
@@ -175,7 +175,7 @@ class JokeAPI {
    * @param {number} params.idRange
    * @param {string} params.contains
    * @param {string} params.type
-   * @param {number} params.
+   * @param {number} params.amount
    * @param {string} params.lang
    * @returns {string}
    */
