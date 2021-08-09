@@ -55,11 +55,11 @@ const JokeClient = new JokeAPI(<apikey>);
 ### • Example
 
 ```javascript
-...
   const joke = await JokeClient.getJoke({categories: ['Coding']});
-  or
+```
+or
+```javascript
   const joke = await JokeClient.getJoke({categories: 'Coding'});
-...
 ```
 
 ## • Info
@@ -72,9 +72,7 @@ const JokeClient = new JokeAPI(<apikey>);
 ### • Example
 
 ```javascript
-...
   const joke = await JokeClient.info();
-...
 ```
 
 ## • Categories
@@ -87,9 +85,7 @@ const JokeClient = new JokeAPI(<apikey>);
 ### • Example
 
 ```javascript
-...
   const joke = await JokeClient.categories();
-...
 ```
 
 ## • Langcode
@@ -102,9 +98,7 @@ const JokeClient = new JokeAPI(<apikey>);
 ### • Example
 
 ```javascript
-...
   const joke = await JokeClient.langcode();
-...
 ```
 
 ## • Languages
@@ -117,9 +111,7 @@ const JokeClient = new JokeAPI(<apikey>);
 ### • Example
 
 ```javascript
-...
   const joke = await JokeClient.languages();
-...
 ```
 
 ## • Flags
@@ -132,9 +124,7 @@ const JokeClient = new JokeAPI(<apikey>);
 ### • Example
 
 ```javascript
-...
   const joke = await JokeClient.flags();
-...
 ```
 
 ## • Formats
@@ -147,9 +137,7 @@ const JokeClient = new JokeAPI(<apikey>);
 ### • Example
 
 ```javascript
-...
   const joke = await JokeClient.formats();
-...
 ```
 
 ## • Ping
@@ -162,9 +150,7 @@ const JokeClient = new JokeAPI(<apikey>);
 ### • Example
 
 ```javascript
-...
   const joke = await JokeClient.ping();
-...
 ```
 
 ## • Inspiration
