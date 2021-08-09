@@ -13,13 +13,14 @@ const parseArray = (data) => {
  * @returns {object}
  */
 const parseParams = (params, options) => {
-  const parsedParams = params;
+  const parsedParams = {};
   let wildcard;
 
-  // Either in params or options
+  Object.assign(parsedParams, params);
 
+  // Either in params or options
   if ('safemode' in options) parsedParams.safemode = 'safemode';
-  if ('safemode' in params) parsedParams.safemode ? delete parsedParams.safemode : (parsedParams.safemode = params.safemode);
+  if ('safemode' in params) params.safemode ? (parsedParams.safemode = 'safemode') : delete parsedParams.safemode;
 
   if ('format' in options) parsedParams.format = options.format;
   if ('format' in params) params.format === 'json' ? delete parsedParams.format : (parsedParams.format = params.format);
