@@ -3,8 +3,9 @@
  * @param {string} fallback
  * @returns {string}
  */
-const parseArray = (data, fallback) => {
-  return data ? (data.length > 0 ? data.split(',').toLowerCase() : data.categories) : fallback;
+const parseArray = (data) => {
+  const parsedData = data ?? (data.length > 0 ? data.split(',') : data.categories);
+  return parsedData ?? parsedData.toLowerCase();
 };
 
 /**
@@ -16,6 +17,7 @@ const parseParams = (params) => {
 
   const obj = {};
 
+  if ('safemode' in params) obj.safemode = 'safemode';
   if ('format' in params) obj.format = params.format;
   if ('blacklistFlags' in params) obj.blacklistFlags = parseArray(params.blacklistFlags);
   if ('lang' in params) obj.lang = params.lang;
