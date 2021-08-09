@@ -32,7 +32,7 @@ const get = () => {
 get();
 ```
 
-## • Have an api key? Example
+## • With api key
 
 ```javascript
 const JokeClient = new JokeAPI(<apikeyhere>);
