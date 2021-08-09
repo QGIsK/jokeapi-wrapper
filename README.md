@@ -1,3 +1,4 @@
+# Joke API Client for NodeJS
 A Node.js wrapper for the JokeAPI with only one dependency.
 
 ## • Installation
