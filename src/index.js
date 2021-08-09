@@ -11,14 +11,20 @@ const Util = require('./helpers/util');
  *     const JokeAPI = require('jokeapi-wrapper');
  *     const JokeAPIClient = new JokeAPi();
  * @public
- * @version 1.0.0
+ * @version 1.0.4
  * @license MIT
  */
 class JokeAPI {
   /**
+   * @param {object} options
+   * @param {boolean} options.safemode Turn on safemode
+   * @param {string} options.format Change global format DEFAULT:: JSON
+   * @param {string|array} options.blacklistFlags Globally blacklist certain flags, Check JokeClient.BLACKLIST_FLAGS or https://jokeapi.dev/ for flag names
+   * @param {string} options.lang Globally change language
    * @param {string} apiKey OPTIONAL:: Authorization key
    */
-  constructor(apiKey) {
+  constructor(options = {}, apiKey) {
+    this.options = options;
     this.apiKey = apiKey;
   }
 
@@ -35,7 +41,10 @@ class JokeAPI {
    * @param {number} params.amount
    * @returns {ReturnObject}
    */
-  getJoke(params = { categories: 'any' }) {
+  getJoke(params = {}) {
+    // eslint-disable-next-line no-param-reassign
+    if (!params.categories) params.categories = 'any';
+
     const url = this._buildUrl('joke', params);
     return this._request(url);
   }
@@ -156,10 +165,11 @@ class JokeAPI {
    * @returns {string}
    */
   _buildUrl(endpoint, params) {
-    const language = params.language;
+    const { language } = params;
     const categories = Util.parseArray(params.categories);
 
-    const obj = Util.parseParams(params);
+    const obj = Util.parseParams(params, this.options);
+    // eslint-disable-next-line no-nested-ternary
     const wildcard = language ? `/${language}` : categories ? `/${categories}` : '';
     const url = `${Constants.BASE}/${endpoint}${wildcard}`;
 
@@ -184,6 +194,7 @@ class JokeAPI {
   _buildQuery(url, query) {
     const parsedQuery = Object.entries(query)
       .map((pair) => {
+        // On some queries there is no value i.e. safemode; so we jsut use the key name
         return pair[0] === pair[1] ? pair[0] : pair.map(encodeURIComponent).join('=');
       })
       .join('&');
@@ -221,4 +232,4 @@ JokeAPI.FORMAT = Constants.FORMAT;
 JokeAPI.TYPE = Constants.TYPE;
 JokeAPI.AMOUNT_MAX = Constants.AMOUNT_MAX;
 
-module.exports = exports = JokeAPI;
+module.exports = JokeAPI;
