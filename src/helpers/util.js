@@ -4,8 +4,7 @@
  * @returns {string}
  */
 const parseArray = (data) => {
-  const parsedData = !data ?? (data.length > 0 ? data.split(',') : data);
-  return !parsedData ?? parsedData.toLowerCase();
+  return typeof data == 'array' ? data.split(',') : data;
 };
 
 /**
@@ -26,6 +25,7 @@ const parseParams = (params) => {
   if ('type' in params) obj.type = parseArray(params.type);
   if ('amount' in params) obj.amount = params.amount;
   if ('lang' in params) obj.lang = params.lang;
+  if ('language' in params) obj.language = params.language;
 
   return obj;
 };
