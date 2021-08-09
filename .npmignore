@@ -1,0 +1,8 @@
+index.test.js
+.lintstagedrc.json
+.prettierignore
+.prettierrc.json
+.eslintrc.json
+.eslintignore
+.editorconfig
+.gitattributes
