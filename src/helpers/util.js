@@ -1,10 +1,9 @@
 /**
  * @param {string|array} data
- * @param {string} fallback
  * @returns {string}
  */
 const parseArray = (data) => {
-  return typeof data === Array ? data.split(',') : data;
+  return Array.isArray(data) ? data.join(',') : data;
 };
 
 /**
@@ -16,11 +15,13 @@ const parseParams = (params, options) => {
   const parsedParams = {};
   let wildcard;
 
+  if (!params || !options) return;
   Object.assign(parsedParams, params);
 
   // Either in params or options
-  if ('safemode' in options) parsedParams.safemode = 'safemode';
-  if ('safemode' in params) params.safemode ? (parsedParams.safemode = 'safemode') : delete parsedParams.safemode;
+  if ('safe-mode' in options) parsedParams['safe-mode'] = 'safe-mode';
+  if ('safe-mode' in params)
+    params['safe-mode'] ? (parsedParams['safe-mode'] = 'safe-mode') : delete parsedParams['safe-mode'];
 
   if ('format' in options) parsedParams.format = options.format;
   if ('format' in params) params.format === 'json' ? delete parsedParams.format : (parsedParams.format = params.format);
