@@ -32,7 +32,7 @@ const get = () => {
 get();
 ```
 
-## • With api key
+## • With Api Key
 
 ```javascript
 const JokeClient = new JokeAPI(<apikey>);
@@ -55,11 +55,13 @@ const JokeClient = new JokeAPI(<apikey>);
 ### • Example
 
 ```javascript
-  const joke = await JokeClient.getJoke({categories: ['Coding']});
+const joke = await JokeClient.getJoke({ categories: ['Coding'] });
 ```
+
 or
+
 ```javascript
-  const joke = await JokeClient.getJoke({categories: 'Coding'});
+const joke = await JokeClient.getJoke({ categories: 'Coding' });
 ```
 
 ## • Info
@@ -72,7 +74,7 @@ or
 ### • Example
 
 ```javascript
-  const joke = await JokeClient.info();
+const joke = await JokeClient.info();
 ```
 
 ## • Categories
@@ -85,7 +87,13 @@ or
 ### • Example
 
 ```javascript
-  const joke = await JokeClient.categories();
+const joke = await JokeClient.categories();
+```
+
+or
+
+```javascript
+  const joke = await JokeClient.categories({format: 'text', lang: 'en'}));
 ```
 
 ## • Langcode
@@ -98,7 +106,13 @@ or
 ### • Example
 
 ```javascript
-  const joke = await JokeClient.langcode();
+const joke = await JokeClient.langcode();
+```
+
+or
+
+```javascript
+  const joke = await JokeClient.langcode({format: 'text', lang: 'en'}));
 ```
 
 ## • Languages
@@ -111,7 +125,13 @@ or
 ### • Example
 
 ```javascript
-  const joke = await JokeClient.languages();
+const joke = await JokeClient.languages();
+```
+
+or
+
+```javascript
+  const joke = await JokeClient.languages({format: 'text', lang: 'en'}));
 ```
 
 ## • Flags
@@ -124,7 +144,13 @@ or
 ### • Example
 
 ```javascript
-  const joke = await JokeClient.flags();
+const joke = await JokeClient.flags();
+```
+
+or
+
+```javascript
+  const joke = await JokeClient.flags({format: 'text', lang: 'en'}));
 ```
 
 ## • Formats
@@ -137,7 +163,13 @@ or
 ### • Example
 
 ```javascript
-  const joke = await JokeClient.formats();
+const joke = await JokeClient.formats();
+```
+
+or
+
+```javascript
+  const joke = await JokeClient.formats({format: 'text', lang: 'en'}));
 ```
 
 ## • Ping
@@ -150,7 +182,13 @@ or
 ### • Example
 
 ```javascript
-  const joke = await JokeClient.ping();
+const joke = await JokeClient.ping();
+```
+
+or
+
+```javascript
+  const joke = await JokeClient.ping({format: 'text', lang: 'en'}));
 ```
 
 ## • Inspiration
