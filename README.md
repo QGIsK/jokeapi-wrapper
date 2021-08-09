@@ -92,7 +92,7 @@ const joke = await JokeClient.getJoke({ categories: 'coding,dark' });
 ### • Example
 
 ```javascript
-const joke = await JokeClient.getJoke({ categories: ['Coding', 'dark] });
+const joke = await JokeClient.getJoke({ categories: ['Coding', 'dark'] });
 ```
 
 or
