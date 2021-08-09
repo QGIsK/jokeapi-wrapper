@@ -35,7 +35,7 @@ get();
 ## • With api key
 
 ```javascript
-const JokeClient = new JokeAPI(<apikeyhere>);
+const JokeClient = new JokeAPI(<apikey>);
 
 ```
 
