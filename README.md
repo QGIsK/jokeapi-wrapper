@@ -31,7 +31,7 @@ This module provides helper constants for use in calls.
 
 ```javascript
 // Import the wrapper library
-const JokeAPI = require("jokeapi-wrapper");
+const JokeAPI = require('jokeapi-wrapper');
 
 // Initiate the client
 const JokeClient = new JokeAPI();
@@ -69,13 +69,20 @@ const JokeClient = new JokeAPI(<apikey>);
 ### • Example
 
 ```javascript
-const joke = await JokeClient.getJoke({ categories: ['Coding'] });
+const joke = await JokeClient.getJoke({ categories: ['Coding', 'dark] });
 ```
 
 or
 
 ```javascript
-const joke = await JokeClient.getJoke({ categories: 'Coding' });
+const joke = await JokeClient.getJoke({ categories: 'Coding, dark' });
+```
+
+or
+
+```javascript
+// If theres no categories provided it defaults to /any
+const joke = await JokeClient.getJoke();
 ```
 
 ## • Info
