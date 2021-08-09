@@ -17,15 +17,14 @@ const Util = require('./helpers/util');
 class JokeAPI {
   /**
    * @param {object} options
-   * @param {boolean} options.safemode Turn on safemode
+   * @param {string} options.apiKey OPTIONAL:: Authorization key
+   * @param {boolean} options.safemode Turn on safemode DEFAULT:: off
    * @param {string} options.format Change global format DEFAULT:: JSON
    * @param {string|array} options.blacklistFlags Globally blacklist certain flags, Check JokeClient.BLACKLIST_FLAGS or https://jokeapi.dev/ for flag names
-   * @param {string} options.lang Globally change language
-   * @param {string} apiKey OPTIONAL:: Authorization key
+   * @param {string} options.lang Globally change language DEFAULT:: en
    */
-  constructor(options = {}, apiKey) {
+  constructor(options = {}) {
     this.options = options;
-    this.apiKey = apiKey;
   }
 
   /**
@@ -206,11 +205,12 @@ class JokeAPI {
    * @description Sends request to api then returns output in requested format
    * @function _request()
    * @param {string} url
+   * @param {object} options
    * @param {string} options.method
    * @returns {object}
    */
   async _request(url, options) {
-    const headers = this.apiKey ? { Authorization: this.apiKey } : {};
+    const headers = this.options.apiKey ? { Authorization: this.options.apiKey } : {};
     const res = await fetch(url, { ...options, headers });
 
     const formattedUrl = new URL(url);
