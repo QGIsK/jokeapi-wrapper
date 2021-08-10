@@ -95,19 +95,34 @@ const joke = await JokeClient.getJoke({ categories: 'coding,dark' });
 
 ```javascript
 const joke = await JokeClient.getJoke({ categories: ['Coding', 'dark'] });
-```
 
-or
-
-```javascript
 const joke = await JokeClient.getJoke({ categories: 'Coding,dark' });
-```
 
-or
-
-```javascript
 // If theres no categories provided it defaults to /any
 const joke = await JokeClient.getJoke();
+```
+
+## • Output
+
+```json
+{
+  "error": false,
+  "category": "Programming",
+  "type": "twopart",
+  "setup": "Why does no one like SQLrillex?",
+  "delivery": "He keeps dropping the database.",
+  "flags": {
+    "nsfw": false,
+    "religious": false,
+    "political": false,
+    "racist": false,
+    "sexist": false,
+    "explicit": false
+  },
+  "id": 13,
+  "safe": true,
+  "lang": "en"
+}
 ```
 
 ## • Info
@@ -121,11 +136,7 @@ const joke = await JokeClient.getJoke();
 
 ```javascript
 const info = await JokeClient.info();
-```
 
-or
-
-```javascript
 const info = await JokeClient.info({ format: 'text', lang: 'en' });
 ```
 
@@ -140,28 +151,18 @@ const info = await JokeClient.info({ format: 'text', lang: 'en' });
 
 ```javascript
 const categories = await JokeClient.categories();
-```
 
-or
-
-```javascript
 const categories = await JokeClient.categories({ format: 'text', lang: 'en' });
 ```
 
 ## • Langcode
 
-| Key        | Type     |
-| ---------- | -------- |
-| `format`   | `string` |
-| `language` | `string` |
+| Key        | Type     | required |
+| ---------- | -------- | -------- |
+| `format`   | `string` | `false`  |
+| `language` | `string` | `true`   |
 
 ### • Example
-
-```javascript
-const langcode = await JokeClient.langcode();
-```
-
-or
 
 ```javascript
 const langcode = await JokeClient.langcode({ format: 'text', language: 'english' });
@@ -178,11 +179,7 @@ const langcode = await JokeClient.langcode({ format: 'text', language: 'english'
 
 ```javascript
 const languages = await JokeClient.languages();
-```
 
-or
-
-```javascript
 const languages = await JokeClient.languages({ format: 'text', lang: 'en' });
 ```
 
@@ -197,11 +194,7 @@ const languages = await JokeClient.languages({ format: 'text', lang: 'en' });
 
 ```javascript
 const flags = await JokeClient.flags();
-```
 
-or
-
-```javascript
 const flags = await JokeClient.flags({ format: 'text', lang: 'en' });
 ```
 
@@ -216,11 +209,7 @@ const flags = await JokeClient.flags({ format: 'text', lang: 'en' });
 
 ```javascript
 const formats = await JokeClient.formats();
-```
 
-or
-
-```javascript
 const formats = await JokeClient.formats({ format: 'text', lang: 'en' });
 ```
 
@@ -235,11 +224,7 @@ const formats = await JokeClient.formats({ format: 'text', lang: 'en' });
 
 ```javascript
 const ping = await JokeClient.ping();
-```
 
-or
-
-```javascript
 const ping = await JokeClient.ping({ format: 'text', lang: 'en' });
 ```
 
@@ -259,6 +244,7 @@ const submitSingle = await JokeClient.submit({
   flags: { nsfw: true, religious: false, political: false, racist: false, sexist: false, explicit: true },
   lang: 'en',
 });
+
 const submitDouble = await JokeClient.submit({
   'dry-run': true,
   formatVersion: 3,
