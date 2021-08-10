@@ -100,6 +100,15 @@ test('Gets english langcode', async (t) => {
   t.pass();
 });
 
+test('Fails if theres no langcode provided', async (t) => {
+  const JokeClient = new JokeAPI();
+  const langcode = await JokeClient.langcode({ language: '' });
+
+  if (!langcode.error) t.fail();
+
+  t.pass();
+});
+
 test('Gets all languages', async (t) => {
   const JokeClient = new JokeAPI();
   const languages = await JokeClient.languages();
