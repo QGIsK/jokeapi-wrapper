@@ -15,7 +15,7 @@ npm i @qgisk/jokeapi-wrapper
 
 ## • JokeAPI Documentation
 
-For complete API documentation, up-to-date parameters, responses and errors, please refer to [JokeAPI](https://jokeapi.dev)
+For complete API documentation, up-to-date parameters, responses and errors, please refer to [JokeAPI](https://jokeapi.dev).
 
 ## • Constants
 
@@ -64,18 +64,21 @@ get();
 ### • Example
 
 ```javascript
+// NOTE:: Params take priority over options so when key is supplied in both, Params will be used.
 const JokeClient = new JokeAPI({ apiKey: 'exampleapikey', safemode: true, format: 'xml' blacklistflags: ['nsfw'], lang: 'de'});
 ```
 
 ## • Categories & BlacklistFlags
 
-can be given in an array or a string seperated by ,
+can be given in an array or a string seperated by , + or -
 
 ### • Example
 
 ```javascript
 const JokeClient = new JokeAPI({ blacklistflags: ['nsfw', 'explicit'] });
 const joke = await JokeClient.getJoke({ categories: 'coding,dark' });
+const joke = await JokeClient.getJoke({ categories: 'coding+dark' });
+const joke = await JokeClient.getJoke({ categories: 'coding-dark' });
 ```
 
 ## • Get Joke
@@ -102,7 +105,7 @@ const joke = await JokeClient.getJoke({ categories: 'Coding,dark' });
 const joke = await JokeClient.getJoke();
 ```
 
-## • Output
+## • Output example
 
 ```json
 {
