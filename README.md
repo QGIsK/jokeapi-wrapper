@@ -173,14 +173,11 @@ const langcode = await JokeClient.langcode({ format: 'text', language: 'english'
 | Key      | Type     |
 | -------- | -------- |
 | `format` | `string` |
-| `lang`   | `string` |
 
 ### • Example
 
 ```javascript
-const languages = await JokeClient.languages();
-
-const languages = await JokeClient.languages({ format: 'text', lang: 'en' });
+const languages = await JokeClient.languages({ format: 'text' });
 ```
 
 ## • Flags
