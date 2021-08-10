@@ -83,6 +83,8 @@ class JokeAPI {
    * @returns {ReturnObject}
    */
   langcode(params = {}) {
+    if (!params.language) return { error: true, message: 'You need to supply a language' };
+
     const url = this._buildUrl('langcode', params);
     return this._request(url);
   }
