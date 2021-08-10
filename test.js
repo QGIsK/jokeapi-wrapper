@@ -120,6 +120,7 @@ test('Gets all languages', async (t) => {
 
   t.pass();
 });
+
 test('Gets all flags', async (t) => {
   const JokeClient = new JokeAPI();
   const flags = await JokeClient.flags();
