@@ -4,10 +4,10 @@
   "version": "1.0.8",
   "description": "Wrapper for Joke API",
   "source": "src/index.js",
-  "main": "./dist/index.umd.js",
-  "module": "./dist/index.module.js",
-  "umd:main": "./dist/index.umd.js",
-  "exports": "./dist/index.modern.js",
+  "main": "./lib/jokeapi-wrapper.cjs",
+  "module": "./lib/jokeapi-wrapper.module.js",
+  "umd:main": "./lib/jokeapi-wrapper.umd.js",
+  "exports": "./lib/jokeapi-wrapper.modern.js",
   "files": [
     "dist/"
   ],
@@ -17,7 +17,7 @@
     "lint:fix": "eslint . --fix",
     "prettier": "prettier --check **/*.js",
     "prettier:fix": "prettier --write **/*.js",
-    "build": "rm -rf dist && microbundle"
+    "build": "rm -rf lib && microbundle --output lib "
   },
   "repository": {
     "type": "git",
