@@ -50,4 +50,4 @@ const TYPE = ['single', 'twopart'];
  */
 const AMOUNT_MAX = 10;
 
-module.exports = { BASE, HOST, API_VERSION, CATEGORIES, BLACKLIST_FLAGS, FORMAT, TYPE, AMOUNT_MAX };
+export default { BASE, HOST, API_VERSION, CATEGORIES, BLACKLIST_FLAGS, FORMAT, TYPE, AMOUNT_MAX };

@@ -49,4 +49,4 @@ const parseParams = (params, options) => {
   return { parsedParams, wildcard };
 };
 
-module.exports = { parseArray, parseParams };
+export default { parseArray, parseParams };

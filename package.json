@@ -1,20 +1,24 @@
 {
+  "type": "module",
   "name": "@qgisk/jokeapi-wrapper",
   "version": "1.0.8",
   "description": "Wrapper for Joke API",
-  "main": "index.js",
+  "source": "src/index.js",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.module.js",
+  "umd:main": "dist/index.umd.js",
+  "exports": "./dist/index.modern.js",
   "files": [
-    "index.js",
-    "src/index.js",
-    "src/helpers/constants.js",
-    "src/helpers/util.js"
+    "dist",
+    "src"
   ],
   "scripts": {
     "test": "ava",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prettier": "prettier --check **/*.js",
-    "prettier:fix": "prettier --write **/*.js"
+    "prettier:fix": "prettier --write **/*.js",
+    "build": "rm -rf dist && microbundle"
   },
   "repository": {
     "type": "git",
@@ -44,6 +48,7 @@
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-security": "^1.4.0",
+    "microbundle": "^0.13.3",
     "prettier": "^2.0.5"
   },
   "dependencies": {

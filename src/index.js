@@ -1,7 +1,7 @@
-const fetch = require('isomorphic-unfetch');
+import fetch from 'isomorphic-unfetch';
 
-const Constants = require('./helpers/constants');
-const Util = require('./helpers/util');
+import Constants from './helpers/constants';
+import Util from './helpers/util';
 
 /**
  * @class JokeAPI
@@ -264,4 +264,4 @@ JokeAPI.FORMAT = Constants.FORMAT;
 JokeAPI.TYPE = Constants.TYPE;
 JokeAPI.AMOUNT_MAX = Constants.AMOUNT_MAX;
 
-module.exports = JokeAPI;
+export default JokeAPI;
