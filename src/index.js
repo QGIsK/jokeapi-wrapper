@@ -1,4 +1,4 @@
-const fetch = require('node-fetch');
+const fetch = require('isomorphic-unfetch');
 
 const Constants = require('./helpers/constants');
 const Util = require('./helpers/util');
