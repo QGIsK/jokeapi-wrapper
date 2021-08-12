@@ -9,8 +9,7 @@
   "umd:main": "dist/index.umd.js",
   "exports": "./dist/index.modern.js",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "scripts": {
     "test": "ava",
