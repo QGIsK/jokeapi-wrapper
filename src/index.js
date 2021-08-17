@@ -174,6 +174,11 @@ class JokeAPI {
     return this._request(url, { body: JSON.stringify(params), method: 'POST' });
   }
 
+  clearData() {
+    const url = this._buildUrl('cleardata');
+    return this._request(url, { method: 'POST' });
+  }
+
   /**
    * @description This is a helper function to encode special characters
    * @function endpoints()
@@ -231,7 +236,7 @@ class JokeAPI {
   _buildQuery(url, query) {
     const parsedQuery = Object.entries(query)
       .map((pair) => {
-        // On some queries there is no value i.e. safemode; so we jsut use the key name
+        // On some queries there is no value i.e. safemode; so we just use the key name
         return pair[0] === pair[1] ? pair[0] : pair.map(encodeURIComponent).join('=');
       })
       .join('&');

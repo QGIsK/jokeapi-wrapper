@@ -340,7 +340,16 @@ test('Encode correctly', async (t) => {
   const string = `dark|programming*dev*`;
   const shouldReturn = `dark%7Cprogramming*dev*`;
 
-  const output = JokeClient._percentEncoder(string);
+  const output = await JokeClient._percentEncoder(string);
 
   t.is(output, shouldReturn);
+});
+
+test('Clear joke function', async (t) => {
+  const JokeClient = new JokeAPI();
+
+  const { error, jokeCache } = await JokeClient.clearData();
+
+  t.true(!error);
+  t.includes(jokeCache.message, 'Successfully cleared');
 });
