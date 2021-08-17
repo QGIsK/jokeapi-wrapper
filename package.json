@@ -4,12 +4,10 @@
   "version": "1.0.8",
   "description": "Wrapper for Joke API",
   "source": "src/index.js",
-  "main": "./lib/jokeapi-wrapper.cjs",
-  "module": "./lib/jokeapi-wrapper.module.js",
-  "umd:main": "./lib/jokeapi-wrapper.umd.js",
-  "exports": "./lib/jokeapi-wrapper.modern.js",
+  "main": "./lib/jokeapi-wrapper.js",
   "files": [
-    "dist/"
+    "dist/",
+    "web/"
   ],
   "scripts": {
     "test": "ava",
@@ -17,7 +15,10 @@
     "lint:fix": "eslint . --fix",
     "prettier": "prettier --check **/*.js",
     "prettier:fix": "prettier --write **/*.js",
-    "build": "rm -rf lib && microbundle --output lib "
+    "build": "npm run build:web && npm run build:node",
+    "build:web": "webpack build --config-name=web",
+    "build:node": "webpack build --config-name=node",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -48,9 +49,11 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-security": "^1.4.0",
     "microbundle": "^0.13.3",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "webpack-cli": "^4.7.2"
   },
   "dependencies": {
-    "isomorphic-unfetch": "^3.1.0"
+    "isomorphic-unfetch": "^3.1.0",
+    "webpack": "^5.50.0"
   }
 }

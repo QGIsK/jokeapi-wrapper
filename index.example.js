@@ -1,61 +1,64 @@
-const JokeAPI = require('.');
+import JokeAPI from './dist/jokeapi-wrapper.js';
 
 const JokeClient = new JokeAPI({ safemode: true, blacklistflags: ['nsfw', 'explicit'] });
 const get = async () => {
-  // Methods
-  const joke = await JokeClient.getJoke({ safemode: false, categories: 'coding,dark', idRange: '10-15' });
-  console.log(joke);
+  // // Methods
 
-  const info = await JokeClient.info({ lang: 'en' });
-  console.log(info);
+  JokeClient.getJoke().then((res) => console.log(res));
 
-  const categories = await JokeClient.categories();
-  console.log(categories);
+  // const joke = await JokeClient.getJoke({ safemode: false, categories: 'coding,dark', idRange: '10-15' });
+  // console.log(joke);
 
-  const langcode = await JokeClient.langcode({ language: 'eng' });
-  console.log(langcode);
+  // const info = await JokeClient.info({ lang: 'en' });
+  // console.log(info);
 
-  const languages = await JokeClient.languages();
-  console.log(languages);
+  // const categories = await JokeClient.categories();
+  // console.log(categories);
 
-  const flags = await JokeClient.flags();
-  console.log(flags);
+  // const langcode = await JokeClient.langcode({ language: 'eng' });
+  // console.log(langcode);
 
-  const formats = await JokeClient.formats();
-  console.log(formats);
+  // const languages = await JokeClient.languages();
+  // console.log(languages);
 
-  const ping = await JokeClient.ping();
-  console.log(ping);
+  // const flags = await JokeClient.flags();
+  // console.log(flags);
 
-  const endpoints = await JokeClient.endpoints();
-  console.log(endpoints);
+  // const formats = await JokeClient.formats();
+  // console.log(formats);
 
-  const submitSingle = await JokeClient.submit({
-    'dry-run': true,
-    formatVersion: 3,
-    category: 'Misc',
-    type: 'single',
-    joke: 'testing',
-    flags: { nsfw: true, religious: false, political: false, racist: false, sexist: false, explicit: true },
-    lang: 'en',
-  });
-  console.log(submitSingle);
+  // const ping = await JokeClient.ping();
+  // console.log(ping);
 
-  const submitDouble = await JokeClient.submit({
-    'dry-run': true,
-    formatVersion: 3,
-    category: 'misc',
-    type: 'twopart',
-    setup: 'Setup',
-    delivery: 'Delivering',
-    flags: { nsfw: true, religious: false, political: false, racist: false, sexist: false, explicit: true },
-    lang: 'en',
-  });
+  // const endpoints = await JokeClient.endpoints();
+  // console.log(endpoints);
 
-  console.log(submitDouble);
+  // const submitSingle = await JokeClient.submit({
+  //   'dry-run': true,
+  //   formatVersion: 3,
+  //   category: 'Misc',
+  //   type: 'single',
+  //   joke: 'testing',
+  //   flags: { nsfw: true, religious: false, political: false, racist: false, sexist: false, explicit: true },
+  //   lang: 'en',
+  // });
+  // console.log(submitSingle);
 
-  // Access Constants
-  console.log(JokeAPI.BASE);
+  // const submitDouble = await JokeClient.submit({
+  //   'dry-run': true,
+  //   formatVersion: 3,
+  //   category: 'misc',
+  //   type: 'twopart',
+  //   setup: 'Setup',
+  //   delivery: 'Delivering',
+  //   flags: { nsfw: true, religious: false, political: false, racist: false, sexist: false, explicit: true },
+  //   lang: 'en',
+  // });
+
+  // console.log(submitDouble);
+
+  // // Access Constants
+  // console.log(JokeAPI.BASE);
 };
 
 get();

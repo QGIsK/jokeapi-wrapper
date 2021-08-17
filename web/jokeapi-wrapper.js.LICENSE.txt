@@ -1,0 +1,11 @@
+/**
+ * @class JokeAPI
+ * @author Demian <devaccdemiann@gmail.com>
+ * @description A Node.js wrapper for the Joke API with only one dependency. For more information, visit: https://jokeapi.dev/
+ * @example
+ *     const JokeAPI = require('jokeapi-wrapper');
+ *     const JokeAPIClient = new JokeAPi();
+ * @public
+ * @version 1.0.8
+ * @license MIT
+ */

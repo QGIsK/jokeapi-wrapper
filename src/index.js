@@ -14,7 +14,7 @@ import Util from './helpers/util';
  * @version 1.0.8
  * @license MIT
  */
-class JokeAPI {
+module.exports.default = class JokeAPI {
   /**
    * @param {object} options
    * @param {string} options.apiKey OPTIONAL:: Authorization key
@@ -253,7 +253,7 @@ class JokeAPI {
 
     return res.json();
   }
-}
+};
 
 JokeAPI.BASE = Constants.BASE;
 JokeAPI.HOST = Constants.HOST;
@@ -263,5 +263,3 @@ JokeAPI.BLACKLIST_FLAGS = Constants.BLACKLIST_FLAGS;
 JokeAPI.FORMAT = Constants.FORMAT;
 JokeAPI.TYPE = Constants.TYPE;
 JokeAPI.AMOUNT_MAX = Constants.AMOUNT_MAX;
-
-export default JokeAPI;
