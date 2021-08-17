@@ -175,6 +175,16 @@ class JokeAPI {
   }
 
   /**
+   * @description This is a helper function to encode special characters
+   * @function endpoints()
+   * @param {string} string
+   */
+  _percentEncoder(string) {
+    if (!string) return { error: true, message: 'You need to supply a string to encode' };
+    return string.replace('|', '%7C');
+  }
+
+  /**
    * @description Builds the url.
    * @function _buildUrl()
    * @param {string} endpoint

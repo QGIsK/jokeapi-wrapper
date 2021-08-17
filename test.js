@@ -333,3 +333,14 @@ test('Wildcard returns correct language', async (t) => {
   t.assert(wildcard);
   t.is(wildcard, `/${params.language}`);
 });
+
+test('Encode correctly', async (t) => {
+  const JokeClient = new JokeAPI();
+
+  const string = `dark|programming*dev*`;
+  const shouldReturn = `dark%7Cprogramming*dev*`;
+
+  const output = JokeClient._percentEncoder(string);
+
+  t.is(output, shouldReturn);
+});
