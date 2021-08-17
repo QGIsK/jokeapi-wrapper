@@ -239,7 +239,7 @@ class JokeAPI {
    */
   async _request(url, options) {
     const headers = {
-      Authorization: this._options.apiKey,
+      Authorization: `Bearer ${this._options.apiKey}`,
       'Content-Type': 'application/json',
     };
 
