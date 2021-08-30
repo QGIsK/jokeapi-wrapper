@@ -38,7 +38,7 @@ class JokeAPI {
    * @param {string} params.contains
    * @param {string} params.type
    * @param {number} params.amount i.e. 5 MAX:: 10
-   * @returns {ReturnObject}
+   * @returns {Object}
    */
   getJoke(params = {}) {
     // eslint-disable-next-line no-param-reassign
@@ -53,7 +53,7 @@ class JokeAPI {
    * @function info()
    * @param {string} params.format
    * @param {string} params.lang
-   * @returns {ReturnObject}
+   * @returns {Object}
    */
   info(params = {}) {
     const url = this._buildUrl('info', params);
@@ -66,7 +66,7 @@ class JokeAPI {
    * @function categories()
    * @param {string} params.format
    * @param {string} params.lang
-   * @returns {ReturnObject}
+   * @returns {Object}
    */
   categories(params = {}) {
     const url = this._buildUrl('categories', params);
@@ -80,7 +80,7 @@ class JokeAPI {
    * @function langcode()
    * @param {string} params.format
    * @param {string} params.language
-   * @returns {ReturnObject}
+   * @returns {Object}
    */
   langcode(params = {}) {
     if (!params.language) return { error: true, message: 'You need to supply a language' };
@@ -95,7 +95,7 @@ class JokeAPI {
    * @function languages()
    * @param {string} params.format
    * @param {string} params.lang
-   * @returns {ReturnObject}
+   * @returns {Object}
    */
   languages(params = {}) {
     const url = this._buildUrl('languages', params);
@@ -107,7 +107,7 @@ class JokeAPI {
    * @function flags()
    * @param {string} params.format
    * @param {string} params.lang
-   * @returns {ReturnObject}
+   * @returns {Object}
    */
   flags(params = {}) {
     const url = this._buildUrl('flags', params);
@@ -119,7 +119,7 @@ class JokeAPI {
    * @function formats()
    * @param {string} params.format
    * @param {string} params.lang
-   * @returns {ReturnObject}
+   * @returns {Object}
    */
   formats(params = {}) {
     const url = this._buildUrl('formats', params);
@@ -132,7 +132,7 @@ class JokeAPI {
    * @function ping()
    * @param {string} params.format
    * @param {string} params.lang
-   * @returns {ReturnObject}
+   * @returns {Object}
    */
   ping(params = {}) {
     const url = this._buildUrl('ping', params);
@@ -143,7 +143,7 @@ class JokeAPI {
    * @description This endpoint returns a list / an array of all available endpoints, their usage (method, url and supported parameters) and a short description each.
    * @function endpoints()
    * @param {string} params.format
-   * @returns {ReturnObject}
+   * @returns {Object}
    */
   endpoints(params = {}) {
     const url = this._buildUrl('endpoints', params);
@@ -165,7 +165,7 @@ class JokeAPI {
    * @param {boolean} params.flags.sexist
    * @param {boolean} params.flags.explicit
    * @param {lang} params.lang
-   * @returns {ReturnObject}
+   * @returns {Object}
    */
   submit(params = {}) {
     const url = this._buildUrl('submit', undefined, params['dry-run']);
