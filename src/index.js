@@ -16,12 +16,12 @@ const Util = require('./helpers/util');
  */
 class JokeAPI {
   /**
-   * @param {object} options
-   * @param {string} options.apiKey OPTIONAL:: Authorization key
-   * @param {boolean} options.safemode Turn on safemode DEFAULT:: off
-   * @param {string} options.format Change global format DEFAULT:: JSON
-   * @param {string|array} options.blacklistFlags Globally blacklist certain flags, Check JokeClient.BLACKLIST_FLAGS or https://jokeapi.dev/ for flag names
-   * @param {string} options.lang Globally change language DEFAULT:: en
+   * @param {Object} options
+   * @param {String} options.apiKey OPTIONAL:: Authorization key
+   * @param {Boolean} options.safemode Turn on safemode DEFAULT:: off
+   * @param {String} options.format Change global format DEFAULT:: JSON
+   * @param {String|array} options.blacklistFlags Globally blacklist certain flags, Check JokeClient.BLACKLIST_FLAGS or https://jokeapi.dev/ for flag names
+   * @param {String} options.lang Globally change language DEFAULT:: en
    */
   constructor(options = {}) {
     this._options = options;
@@ -30,15 +30,15 @@ class JokeAPI {
   /**
    * @description This endpoint is the one you want to call to get a joke.
    * @function getJoke()
-   * @param {string|array} params.categories
-   * @param {string} params.format
-   * @param {string|array} params.blacklistFlags
-   * @param {string} params.lang
-   * @param {string} params.idRange i.e. 10-25
-   * @param {string} params.contains
-   * @param {string} params.type
-   * @param {number} params.amount i.e. 5 MAX:: 10
-   * @returns {ReturnObject}
+   * @param {String|array} params.categories
+   * @param {String} params.format
+   * @param {String|array} params.blacklistFlags
+   * @param {String} params.lang
+   * @param {String} params.idRange i.e. 10-25
+   * @param {String} params.contains
+   * @param {String} params.type
+   * @param {Number} params.amount i.e. 5 MAX:: 10
+   * @returns {Object}
    */
   getJoke(params = {}) {
     // eslint-disable-next-line no-param-reassign
@@ -51,9 +51,9 @@ class JokeAPI {
   /**
    * @description This endpoint provides a lot of information about JokeAPI and its jokes
    * @function info()
-   * @param {string} params.format
-   * @param {string} params.lang
-   * @returns {ReturnObject}
+   * @param {String} params.format
+   * @param {String} params.lang
+   * @returns {Object}
    */
   info(params = {}) {
     const url = this._buildUrl('info', params);
@@ -64,9 +64,9 @@ class JokeAPI {
    * @description This endpoint returns a list / an array of all available joke categories,
    * all available category aliases and a 13-character UNIX timestamp.
    * @function categories()
-   * @param {string} params.format
-   * @param {string} params.lang
-   * @returns {ReturnObject}
+   * @param {String} params.format
+   * @param {String} params.lang
+   * @returns {Object}
    */
   categories(params = {}) {
     const url = this._buildUrl('categories', params);
@@ -78,9 +78,9 @@ class JokeAPI {
    * It is searched with a fuzzy search, so you just have to provide the approximate language name.
    * The resulting language code is to be used in fetching and submitting jokes in different languages.
    * @function langcode()
-   * @param {string} params.format
-   * @param {string} params.language
-   * @returns {ReturnObject}
+   * @param {String} params.format
+   * @param {String} params.language
+   * @returns {Object}
    */
   langcode(params = {}) {
     if (!params.language) return { error: true, message: 'You need to supply a language' };
@@ -93,9 +93,9 @@ class JokeAPI {
    * @description This endpoint returns lists of supported languages in jokes and supported languages in system messages (error messages).
    * Also, it returns a list of possible ISO 639-1 language codes you can use to submit a joke or add a translation.
    * @function languages()
-   * @param {string} params.format
-   * @param {string} params.lang
-   * @returns {ReturnObject}
+   * @param {String} params.format
+   * @param {String} params.lang
+   * @returns {Object}
    */
   languages(params = {}) {
     const url = this._buildUrl('languages', params);
@@ -105,9 +105,9 @@ class JokeAPI {
   /**
    * @description This endpoint returns a list / an array of all available blacklist flags and a 13-character UNIX timestamp.
    * @function flags()
-   * @param {string} params.format
-   * @param {string} params.lang
-   * @returns {ReturnObject}
+   * @param {String} params.format
+   * @param {String} params.lang
+   * @returns {Object}
    */
   flags(params = {}) {
     const url = this._buildUrl('flags', params);
@@ -117,9 +117,9 @@ class JokeAPI {
   /**
    * @description This endpoint returns a list / an array of all available response formats and a 13-character UNIX timestamp.
    * @function formats()
-   * @param {string} params.format
-   * @param {string} params.lang
-   * @returns {ReturnObject}
+   * @param {String} params.format
+   * @param {String} params.lang
+   * @returns {Object}
    */
   formats(params = {}) {
     const url = this._buildUrl('formats', params);
@@ -130,9 +130,9 @@ class JokeAPI {
    * @description This endpoint returns a parameter named "ping" that contains the word "Pong!"
    * and a 13-character UNIX timestamp. It is intended for external uptime monitoring
    * @function ping()
-   * @param {string} params.format
-   * @param {string} params.lang
-   * @returns {ReturnObject}
+   * @param {String} params.format
+   * @param {String} params.lang
+   * @returns {Object}
    */
   ping(params = {}) {
     const url = this._buildUrl('ping', params);
@@ -142,8 +142,8 @@ class JokeAPI {
   /**
    * @description This endpoint returns a list / an array of all available endpoints, their usage (method, url and supported parameters) and a short description each.
    * @function endpoints()
-   * @param {string} params.format
-   * @returns {ReturnObject}
+   * @param {String} params.format
+   * @returns {Object}
    */
   endpoints(params = {}) {
     const url = this._buildUrl('endpoints', params);
@@ -153,19 +153,19 @@ class JokeAPI {
   /**
    * @description This endpoint returns a list / an array of all available endpoints, their usage (method, url and supported parameters) and a short description each.
    * @function endpoints()
-   * @param {number} params.formatVersion
-   * @param {string} params.category
-   * @param {string} params.type
-   * @param {string} params.joke
-   * @param {object} params.flags
-   * @param {boolean} params.flags.nsfw
-   * @param {boolean} params.flags.religious
-   * @param {boolean} params.flags.political
-   * @param {boolean} params.flags.racist
-   * @param {boolean} params.flags.sexist
-   * @param {boolean} params.flags.explicit
-   * @param {lang} params.lang
-   * @returns {ReturnObject}
+   * @param {Number} params.formatVersion
+   * @param {String} params.category
+   * @param {String} params.type
+   * @param {String} params.joke
+   * @param {Object} params.flags
+   * @param {Boolean} params.flags.nsfw
+   * @param {Boolean} params.flags.religious
+   * @param {Boolean} params.flags.political
+   * @param {Boolean} params.flags.racist
+   * @param {Boolean} params.flags.sexist
+   * @param {Boolean} params.flags.explicit
+   * @param {String} params.lang
+   * @returns {Object}
    */
   submit(params = {}) {
     const url = this._buildUrl('submit', undefined, params['dry-run']);
@@ -182,28 +182,28 @@ class JokeAPI {
   /**
    * @description This is a helper function to encode special characters
    * @function endpoints()
-   * @param {string} string
+   * @param {String} String
    */
-  _percentEncoder(string) {
-    if (!string) return { error: true, message: 'You need to supply a string to encode' };
-    return string.replace('|', '%7C');
+  _percentEncoder(String) {
+    if (!String) return { error: true, message: 'You need to supply a String to encode' };
+    return String.replace('|', '%7C');
   }
 
   /**
    * @description Builds the url.
    * @function _buildUrl()
-   * @param {string} endpoint
-   * @param {string|array} params.categories
-   * @param {string} params.format
-   * @param {string|array} params.blacklistFlags
-   * @param {string} params.lang
-   * @param {number} params.idRange
-   * @param {string} params.contains
-   * @param {string} params.type
-   * @param {number} params.amount
-   * @param {string} params.lang
-   * @param {string} method
-   * @returns {string}
+   * @param {String} endpoint
+   * @param {String|array} params.categories
+   * @param {String} params.format
+   * @param {String|array} params.blacklistFlags
+   * @param {String} params.lang
+   * @param {Number} params.idRange
+   * @param {String} params.contains
+   * @param {String} params.type
+   * @param {Number} params.amount
+   * @param {String} params.lang
+   * @param {String} method
+   * @returns {String}
    */
   _buildUrl(endpoint, params, testRun) {
     if (testRun) return `${Constants.BASE}/${endpoint}?dry-run`;
@@ -219,19 +219,19 @@ class JokeAPI {
   }
 
   /**
-   * @description Formats object into http query
+   * @description Formats Object into http query
    * @function _buildQuery()
-   * @param {string} url
-   * @param {string|array} params.categories
-   * @param {string} params.format
-   * @param {string|array} params.blacklistFlags
-   * @param {string} params.lang
-   * @param {number} params.idRange
-   * @param {string} params.contains
-   * @param {string} params.type
-   * @param {number} params.amount
-   * @param {string} params.lang
-   * @returns {string}
+   * @param {String} url
+   * @param {String|array} params.categories
+   * @param {String} params.format
+   * @param {String|array} params.blacklistFlags
+   * @param {String} params.lang
+   * @param {Number} params.idRange
+   * @param {String} params.contains
+   * @param {String} params.type
+   * @param {Number} params.amount
+   * @param {String} params.lang
+   * @returns {String}
    */
   _buildQuery(url, query) {
     const parsedQuery = Object.entries(query)
@@ -247,10 +247,10 @@ class JokeAPI {
   /**
    * @description Sends request to api then returns output in requested format
    * @function _request()
-   * @param {string} url
-   * @param {object} options
-   * @param {string} options.method
-   * @returns {object}
+   * @param {String} url
+   * @param {Object} options
+   * @param {String} options.method
+   * @returns {Object}
    */
   async _request(url, options) {
     const headers = {
