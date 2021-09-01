@@ -107,13 +107,15 @@ const joke = await JokeClient.getJoke();
 
 ## • Output example
 
+Headers are only supplied when format is JSON
+
 ```json
 {
   "error": false,
   "category": "Programming",
   "type": "twopart",
-  "setup": "Why does no one like SQLrillex?",
-  "delivery": "He keeps dropping the database.",
+  "setup": "Why do programmers confuse Halloween and Christmas?",
+  "delivery": "Because Oct 31 = Dec 25",
   "flags": {
     "nsfw": false,
     "religious": false,
@@ -122,9 +124,16 @@ const joke = await JokeClient.getJoke();
     "sexist": false,
     "explicit": false
   },
-  "id": 13,
+  "id": 11,
   "safe": true,
-  "lang": "en"
+  "lang": "en",
+  "headers": {
+    "date": "Wed, 01 Sep 2021 12:44:50 GMT",
+    "retry-after": "21",
+    "ratelimit-limit": "120",
+    "ratelimit-remaining": "118",
+    "ratelimit-reset": "Wed Sep 01 2021 14:45:11 GMT+0200 (Central European Summer Time)"
+  }
 }
 ```
 

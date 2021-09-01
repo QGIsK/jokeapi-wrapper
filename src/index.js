@@ -258,15 +258,24 @@ class JokeAPI {
       'Content-Type': 'application/json',
     };
 
-    const res = await fetch(url, { ...options, headers });
+    const response = await fetch(url, { ...options, headers });
 
     const formattedUrl = new URL(url);
     const urlSearchParams = new URLSearchParams(formattedUrl.search);
     const format = urlSearchParams.get('format');
 
-    if (format) return res.text();
+    if (format) return response.text();
 
-    return res.json();
+    const json = await response.json();
+
+    const requestHeaders = ['date', 'retry-after', 'ratelimit-limit', 'ratelimit-remaining', 'ratelimit-reset'];
+    const formattedHeaders = {};
+
+    requestHeaders.forEach((header) => {
+      formattedHeaders[header] = response.headers.get(header);
+    });
+
+    return { ...json, headers: formattedHeaders };
   }
 }
 

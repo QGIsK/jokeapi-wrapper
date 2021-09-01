@@ -353,3 +353,26 @@ test('Clear joke function', async (t) => {
   t.true(!error);
   t.includes(jokeCache.message, 'Successfully cleared');
 });
+
+test('Headers are supplied in JSON Format', async (t) => {
+  const JokeClient = new JokeAPI();
+
+  const res = await JokeClient.getJoke();
+
+  t.true(!res.error);
+  t.assert(res.headers);
+  t.assert(res.headers.date);
+  t.assert(res.headers['retry-after']);
+  t.assert(res.headers['ratelimit-limit']);
+  t.assert(res.headers['ratelimit-remaining']);
+  t.assert(res.headers['ratelimit-reset']);
+});
+
+test('Headers are not supplied in XML Format', async (t) => {
+  const JokeClient = new JokeAPI();
+
+  const res = await JokeClient.getJoke({ format: 'xml' });
+
+  t.true(!res.error);
+  t.assert(!res.headers);
+});
