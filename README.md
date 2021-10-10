@@ -5,7 +5,7 @@
 [![CodeQL](https://github.com/QGIsK/jokeapi-wrapper/actions/workflows/codeql-analysis.yml/badge.svg?branch=main)](https://github.com/QGIsK/jokeapi-wrapper/actions/workflows/codeql-analysis.yml)
 [![Test package](https://github.com/QGIsK/jokeapi-wrapper/actions/workflows/test.js.yml/badge.svg?branch=main)](https://github.com/QGIsK/jokeapi-wrapper/actions/workflows/test.js.yml)
 
-A Node.js wrapper for the JokeAPI with only one dependency [node-fetch](https://www.npmjs.com/package/node-fetch).
+A Node.js wrapper for the JokeAPI with only one dependency [isomorphic-unfetch](https://www.npmjs.com/package/isomorphic-unfetch).
 
 ## • Installation
 
