@@ -11,7 +11,6 @@ const Util = require('./helpers/util');
  *     const JokeAPI = require('jokeapi-wrapper');
  *     const JokeAPIClient = new JokeAPi();
  * @public
- * @version 1.1.0
  * @license MIT
  */
 class JokeAPI {
