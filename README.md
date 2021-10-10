@@ -7,11 +7,15 @@
 
 A Node.js wrapper for the JokeAPI with only one dependency [isomorphic-unfetch](https://www.npmjs.com/package/isomorphic-unfetch).
 
+
 ## • Installation
 
 ```bash
 npm i @qgisk/jokeapi-wrapper
 ```
+
+## • Example Project
+[Discord Bot](https://discord.com/oauth2/authorize?client_id=896816739336196208&permissions=0&scope=bot%20applications.commands) | [Source](https://github.com/QGIsK/JokeBot)
 
 ## • JokeAPI Documentation
 
