@@ -120,15 +120,13 @@ test('Gets ping', async (t) => {
   const ping = await JokeClient.ping();
 
   t.true(!ping.error);
-  t.is(ping.ping, 'Pong!');
 });
 
 test('Gets endpoints', async (t) => {
   const JokeClient = new JokeAPI();
   const endpoints = await JokeClient.endpoints();
 
-  t.true(!endpoints.error);
-  t.assert(endpoints.length > 0);
+  t.assert(Object.keys(endpoints).length > 0);
 });
 
 test('Submits single joke as dry run', async (t) => {
@@ -348,10 +346,10 @@ test('Encode correctly', async (t) => {
 test('Clear joke function', async (t) => {
   const JokeClient = new JokeAPI();
 
-  const { error, jokeCache } = await JokeClient.clearData();
+  const output = await JokeClient.clearData();
 
-  t.true(!error);
-  t.includes(jokeCache.message, 'Successfully cleared');
+  t.true(!output.error);
+  t.true(output.jokeCache.message.includes('Successfully cleared'));
 });
 
 test('Headers are supplied in JSON Format', async (t) => {
