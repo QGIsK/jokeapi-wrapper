@@ -1,5 +1,5 @@
 /**
- * @param {string|array} data
+ * @param {string|Array} data
  * @returns {string}
  */
 const parseArray = (data) => {
@@ -7,9 +7,9 @@ const parseArray = (data) => {
 };
 
 /**
- * @param {object} params
- * @param {object} options
- * @returns {object}
+ * @param {Object} params
+ * @param {Object} options
+ * @returns {Object}
  */
 const parseParams = (params, options) => {
   const parsedParams = {};
