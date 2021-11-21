@@ -19,7 +19,7 @@ npm i @qgisk/jokeapi-wrapper
 
 ## • JokeAPI Documentation
 
-For the full wrapper documentation checkout [this](https://jokewrapper.demiann.dev/)
+For the full wrapper documentation checkout [this](https://jokewrapper.docs.demiann.dev/)
 
 For complete API documentation, up-to-date parameters, responses and errors, please refer to [JokeAPI](https://jokeapi.dev).
 
