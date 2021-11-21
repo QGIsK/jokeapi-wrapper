@@ -7,7 +7,7 @@ export default theme({
         async: true,
         defer: true,
         'data-domain': 'jokewrapper.docs.demiann.dev',
-        src: 'https://analytics.demiann.dev/js/plausible.js',
+        src: 'https://uwu.demiann.dev/js/script.js',
       },
     ],
   },
