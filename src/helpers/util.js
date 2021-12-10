@@ -42,23 +42,28 @@ const parseParams = (params, options) => {
     else parsedParams.format = params.format;
   }
 
-  if ('blacklistFlags' in params || 'blacklistFlags' in options)
-    parsedParams.blacklistFlags = params.blacklistFlags
-      ? parseArray(params.blacklistFlags)
-      : parseArray(options.blacklistFlags);
+  if ('blacklistFlags' in params || 'blacklistFlags' in options) {
+    // @ts-ignore TODO :: Fix this TS Error
+    if (params.blacklistFlags && options.blacklistFlags) parsedParams.blacklistFlags = parseArray(params.blacklistFlags);
+    // @ts-ignore TODO :: Fix this TS Error
+    else parsedParams.blacklistFlags = parseArray(params.blacklistFlags || options.blacklistFlags);
+  }
 
   if ('lang' in params || 'lang' in options) parsedParams.lang = params.lang ? params.lang : options.lang;
 
   // Just in params
+  // @ts-ignore TODO :: Fix this TS Error
   if ('type' in params) parsedParams.type = parseArray(params.type);
 
   // set wildcard
   if ('categories' in params) {
     wildcard = `/${parseArray(params.categories)}`;
+    // @ts-ignore TODO :: Fix this TS Error
     delete parsedParams.categories;
   }
   if ('language' in params) {
     wildcard = `/${params.language}`;
+    // @ts-ignore TODO :: Fix this TS Error
     delete parsedParams.language;
   }
 
