@@ -174,9 +174,10 @@ class JokeAPI {
   }
 
   /**
-   * @description This clears ur joke cache ( Jokes are cached to avoid duplicates )
    * @function clearData
-   * @param {string} string
+   * @description This clears ur joke cache ( Jokes are cached to avoid duplicates )
+   *
+   * @return {Object}
    */
   clearData() {
     const url = this._buildUrl('cleardata');
@@ -184,9 +185,12 @@ class JokeAPI {
   }
 
   /**
+   * @function _percentEncoder
    * @description This is a helper function to encode special characters
-   * @function endpoints
+   * 
    * @param {string} string
+   *
+   * @return {string | {error: boolean, message: string}}
    */
   _percentEncoder(string) {
     if (!string) return { error: true, message: 'You need to supply a string to encode' };
@@ -198,7 +202,7 @@ class JokeAPI {
    * @description Builds the url.
    *
    * @param {string} endpoint
-   * @param {ExtendedParams} params
+   * @param {ExtendedParams} [params]
    * @param {Boolean } [testRun]
    *
    * @return {string}
@@ -264,11 +268,12 @@ class JokeAPI {
 
     const json = await response.json();
 
+    /** @type {string[]} */
     const requestHeaders = ['date', 'retry-after', 'ratelimit-limit', 'ratelimit-remaining', 'ratelimit-reset'];
     const formattedHeaders = {};
 
     requestHeaders.forEach((header) => {
-      // @ts-ignore
+      // @ts-ignore TODO :: Fix this TS Error
       formattedHeaders[header] = response.headers.get(header);
     });
 
