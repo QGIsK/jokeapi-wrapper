@@ -26,7 +26,7 @@ npm install @qgisk/jokeapi-wrapper
 
 then import `@qgisk/jokeapi-wrapper` in your main file and initiate the client
 
-```js[index.js]
-const JokeAPI = require('@qgisk/jokeapi-wrapper');
+```javascript[index.js]
+import JokeAPI from '@qgisk/jokeapi-wrapper'
 const client = new JokeAPI();
 ```

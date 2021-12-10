@@ -1,9 +1,10 @@
-const JokeAPI = require('.');
+import JokeAPI from './index.js'
 
-const JokeClient = new JokeAPI({ safemode: true, blacklistflags: ['nsfw', 'explicit'] });
+const JokeClient = new JokeAPI({ 'safe-mode': true, blacklistflags: ['nsfw', 'explicit'] });
+
 const get = async () => {
   // Methods
-  const joke = await JokeClient.getJoke({ safemode: false, categories: 'coding,dark', idRange: '10-15' });
+  const joke = await JokeClient.getJoke({ 'safe-mode': false, categories: 'coding,dark', idRange: '10-15' });
   console.log(joke);
 
   const info = await JokeClient.info({ lang: 'en' });

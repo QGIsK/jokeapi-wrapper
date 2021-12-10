@@ -1,35 +1,35 @@
-const test = require('ava');
+import test from 'ava';
 
-const JokeAPI = require('.');
-const Util = require('./src/helpers/util');
+import JokeAPI from './index.js';
+import Util from './src/helpers/util.js';
 
-test('Has safemode', async (t) => {
+test('Has safemode', (t) => {
   const JokeClient = new JokeAPI({ 'safe-mode': true });
 
   const params = JokeClient._options;
-  const url = await JokeClient._buildUrl('joke', params);
+  const url = JokeClient._buildUrl('joke', params);
 
   t.true(url.includes('safe-mode'));
 });
 
-test('Doesnt have safemode', async (t) => {
+test('Doesnt have safemode', (t) => {
   const JokeClient = new JokeAPI({ 'safe-mode': false });
   const params = JokeClient._options;
-  const url = await JokeClient._buildUrl('joke', params);
+  const url = JokeClient._buildUrl('joke', params);
 
   t.true(!url.includes('safe-mode'));
 });
 
-test('Has dry run', async (t) => {
+test('Has dry run', (t) => {
   const JokeClient = new JokeAPI();
-  const url = await JokeClient._buildUrl('submit', undefined, true);
+  const url = JokeClient._buildUrl('submit', undefined, true);
 
   t.true(url.includes('dry-run'));
 });
 
-test('Doesnt have dry run', async (t) => {
+test('Doesnt have dry run', (t) => {
   const JokeClient = new JokeAPI();
-  const url = await JokeClient._buildUrl('submit', undefined, false);
+  const url = JokeClient._buildUrl('submit', undefined, false);
 
   t.true(!url.includes('dry-run'));
 });
@@ -164,18 +164,18 @@ test('Submits twopart joke as dry run', async (t) => {
   t.is(doubleJoke.message, 'Dry Run complete! No errors were found.');
 });
 
-test('parseArray returns string seperated by commas when given array', async (t) => {
+test('parseArray returns string seperated by commas when given array', (t) => {
   const testArray = ['coding', 'dark'];
 
-  const parsedArray = await Util.parseArray(testArray);
+  const parsedArray = Util.parseArray(testArray);
 
   t.is(parsedArray, 'coding,dark');
 });
 
-test('parseArray returns string when given string', async (t) => {
+test('parseArray returns string when given string', (t) => {
   const testString = 'coding,dark';
 
-  const parsedString = await Util.parseArray(testString);
+  const parsedString = Util.parseArray(testString);
 
   t.is(parsedString, testString);
 });
@@ -238,7 +238,7 @@ test('parsedParams returns nothing when format overwritten by params', async (t)
 
   const { parsedParams } = Util.parseParams(params, options);
 
-  //   Json is default so format is nothing
+  // Json is default so format is nothing
   t.assert(!parsedParams.format);
 });
 
