@@ -27,7 +27,7 @@ For complete API documentation, up-to-date parameters, responses and errors, ple
 
 ```javascript
 // Import the wrapper library
-const JokeAPI = require('@qgisk/jokeapi-wrapper');
+import JokeAPI from '@qgisk/jokeapi-wrapper';
 
 // Initiate the client
 const JokeClient = new JokeAPI();
