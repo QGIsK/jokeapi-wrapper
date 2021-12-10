@@ -41,7 +41,7 @@ When `true` the api wont serve any joke that is considered explicit in any way, 
 
 ```javascript[index.js]
 new JokeAPI({
-  safemode: true
+  'safe-mode': true
 }
 ```
 

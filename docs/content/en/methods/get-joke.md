@@ -10,7 +10,7 @@ category: 'Methods'
 This will get a random joke in any category.
 
 ```javascript[index.js]
-const joke = await JokeClient.getJoke();
+await JokeClient.getJoke();
 ```
 
 ## Parameters

@@ -1,1 +1,3 @@
-module.exports = require('./src/index');
+import JokeAPI from './src/index.js';
+
+export default JokeAPI;
