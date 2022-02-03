@@ -120,15 +120,13 @@ test('Gets ping', async (t) => {
   const ping = await JokeClient.ping();
 
   t.true(!ping.error);
-  t.is(ping.ping, 'Pong!');
 });
 
 test('Gets endpoints', async (t) => {
   const JokeClient = new JokeAPI();
   const endpoints = await JokeClient.endpoints();
 
-  t.true(!endpoints.error);
-  t.assert(endpoints.length > 0);
+  t.assert(Object.keys(endpoints).length > 0);
 });
 
 test('Submits single joke as dry run', async (t) => {
@@ -332,4 +330,47 @@ test('Wildcard returns correct language', async (t) => {
 
   t.assert(wildcard);
   t.is(wildcard, `/${params.language}`);
+});
+
+test('Encode correctly', async (t) => {
+  const JokeClient = new JokeAPI();
+
+  const string = `dark|programming*dev*`;
+  const shouldReturn = `dark%7Cprogramming*dev*`;
+
+  const output = await JokeClient._percentEncoder(string);
+
+  t.is(output, shouldReturn);
+});
+
+test('Clear joke function', async (t) => {
+  const JokeClient = new JokeAPI();
+
+  const output = await JokeClient.clearData();
+
+  t.true(!output.error);
+  t.true(output.jokeCache.message.includes('Successfully cleared'));
+});
+
+test('Headers are supplied in JSON Format', async (t) => {
+  const JokeClient = new JokeAPI();
+
+  const res = await JokeClient.getJoke();
+
+  t.true(!res.error);
+  t.assert(res.headers);
+  t.assert(res.headers.date);
+  t.assert(res.headers['retry-after']);
+  t.assert(res.headers['ratelimit-limit']);
+  t.assert(res.headers['ratelimit-remaining']);
+  t.assert(res.headers['ratelimit-reset']);
+});
+
+test('Headers are not supplied in XML Format', async (t) => {
+  const JokeClient = new JokeAPI();
+
+  const res = await JokeClient.getJoke({ format: 'xml' });
+
+  t.true(!res.error);
+  t.assert(!res.headers);
 });

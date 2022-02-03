@@ -17,12 +17,11 @@ import Util from './helpers/util.js';
  * @class JokeAPI
  * @author Demian <devaccdemiann@gmail.com>
  * @description A Node.js wrapper for the Joke API with only one dependency. For more information, visit: https://jokeapi.dev/
+ * @public
+ * @license MIT
  * @example
  *     const JokeAPI = require('jokeapi-wrapper');
  *     const JokeAPIClient = new JokeAPi();
- * @public
- * @version 1.0.8
- * @license MIT
  */
 class JokeAPI {
   /**
@@ -175,11 +174,35 @@ class JokeAPI {
   }
 
   /**
+   * @function clearData
+   * @description This clears ur joke cache ( Jokes are cached to avoid duplicates )
+   *
+   * @return {Object}
+   */
+  clearData() {
+    const url = this._buildUrl('cleardata');
+    return this._request(url, { method: 'POST' });
+  }
+
+  /**
+   * @function _percentEncoder
+   * @description This is a helper function to encode special characters
+   * 
+   * @param {string} string
+   *
+   * @return {string | {error: boolean, message: string}}
+   */
+  _percentEncoder(string) {
+    if (!string) return { error: true, message: 'You need to supply a string to encode' };
+    return string.replace('|', '%7C');
+  }
+
+  /**
    * @function _buildUrl
    * @description Builds the url.
    *
    * @param {string} endpoint
-   * @param {ExtendedParams} params
+   * @param {ExtendedParams} [params]
    * @param {Boolean } [testRun]
    *
    * @return {string}
@@ -228,11 +251,11 @@ class JokeAPI {
    */
   async _request(url, options) {
     const headers = {
-      Authorization: this._options.apiKey,
+      Authorization: `Bearer ${this._options.apiKey}`,
       'Content-Type': 'application/json',
     };
 
-    const res = await fetch(url, { ...options, headers });
+    const response = await fetch(url, { ...options, headers });
 
     // @ts-ignore TODO :: Fix this
     const formattedUrl = new URL(url);
@@ -241,9 +264,20 @@ class JokeAPI {
     const urlSearchParams = new URLSearchParams(formattedUrl.search);
     const format = urlSearchParams.get('format');
 
-    if (format) return res.text();
+    if (format) return response.text();
 
-    return res.json();
+    const json = await response.json();
+
+    /** @type {string[]} */
+    const requestHeaders = ['date', 'retry-after', 'ratelimit-limit', 'ratelimit-remaining', 'ratelimit-reset'];
+    const formattedHeaders = {};
+
+    requestHeaders.forEach((header) => {
+      // @ts-ignore TODO :: Fix this TS Error
+      formattedHeaders[header] = response.headers.get(header);
+    });
+
+    return { ...json, headers: formattedHeaders };
   }
 }
 

@@ -1,7 +1,7 @@
 ---
 title: Example Projects
 description: 'Example projects using the wrapper'
-position: 13
+position: 15
 category: 'Community'
 ---
 

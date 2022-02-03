@@ -2,7 +2,7 @@
  * @kind constant
  * @description The base url for the Joke API
  */
-const BASE = 'https://v2.jokeapi.dev';
+const BASE = 'https://stage.jokeapi.dev';
 
 /**
  * @kind constant
